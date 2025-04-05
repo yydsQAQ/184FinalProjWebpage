@@ -1,98 +1,128 @@
 <html>
-	<head>
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-		<style>
-			h1 {
-				text-align: center;
-			}
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      h1 {
+        text-align: center;
+      }
 
-			.container {
-				margin: 0 auto;
-				padding: 60px 20%;
-			}
+      .container {
+        margin: 0 auto;
+        padding: 60px 20%;
+      }
 
-			figure {
-				text-align: center;
-			}
+      figure {
+        text-align: center;
+      }
 
-			img {
-				display: inline-block;
-			}
+      img {
+        display: inline-block;
+      }
 
-			body {
-				font-family: 'Inter', sans-serif;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="container">
-		<h1>CS184/284A Spring 2025 Homework 4 Write-Up</h1>
-		<div style="text-align: center;">Name:</div>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Dynamic Lighthouse and Coastal Waters</h1>
+      <div style="text-align: center">
+        Name: Albert Xie, Jon Giller, Dhanin Wongpanich, Soren Ying
+      </div>
 
-		<figure>
-			<img src="clothsim.png" alt="Cloth draped over sphere" style="width:70%"/>
-			<figcaption></figcaption>
-		</figure>
+      <figure>
+        <img
+          src="img/index.png"
+          alt="Cloth draped over sphere"
+          style="width: 70%"
+        />
+        <figcaption></figcaption>
+      </figure>
 
-		<!--
+      <!--
 		We've already added one heading per part, to make your write-up as navigable when grading. Please fit your write-up within these sections!
 		-->
 
-		<h2>Overview</h2>
-		Give a high-level overview of what you implemented in this homework. Think about what you've built as a whole. Share your thoughts on what interesting things you've learned from completing the homework.
+      <h2>Title, Summary and Team Members</h2>
+      Team Members: Albert Xie, Jon Giller, Dhanin Wongpanich, Soren
+      <br />Project Title: Dynamic Lighthouse and Coastal Waters
+      <br />Description: We plan on creating a scene of a floating boat in water
+      with waves and a nearby lighthouse. We aim to create a realistic
+      wave/water simulation that interacts with the boat and shoreline. Our
+      lighthouse will rotate, dynamically lighting the scene.
 
-		<h2>Part 1: Masses and springs</h2>
-		<div style="display: flex; flex-direction: column; align-items: center;">
-			<table style="width: 100%; text-align: center; border-collapse: collapse;">
-			  <tr>
-				<td style="text-align: center;">
-				  <img src="" width="400px"/>
-				  <figcaption>.</figcaption>
-				</td>
-				<td style="text-align: center;">
-				  <img src="" width="400px"/>
-				  <figcaption>.</figcaption>
-				</td>
-			  </tr>
-			  <tr>
-				<td style="text-align: center;">
-				  <img src="" width="400px"/>
-				  <figcaption>.</figcaption>
-				</td>
-				<td style="text-align: center;">
-				  <img src="" width="400px"/>
-				  <figcaption></figcaption>
-				</td>
-			  </tr>
-			</table>
-		</div>
+      <h2>Problem Description</h2>
+      Water physics and graphics are a well studied field of computer graphics,
+      however they are often neglected in most simulations that we interact
+      with. We are interested in how we can simulate water physics in a
+      realistic but computationally efficient way. We plan to create a scene
+      including a boat and a lighthouse along a shoreline to highlight our wave
+      simulation with static and nonstatic objects. With our simulation, we aim
+      to show the lighting conditions for a boat in the ocean at night and
+      simulate the danger of nighttime maritime navigation. Simulating water
+      realistically and interactions with both the shore and boat will be the
+      most difficult portions of the project. We will explore the sum of sines,
+      height field wave equations, and particle simulations for wave
+      simulations. We aim to use ray tracing for the dynamic lighting from the
+      lighthouse.
 
-		<h2>Part 2: Simulation via numerical integration</h2>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <h2>Goals and Deliverables</h2>
+      <h3>Plan to deliver</h3>
+      <ol>
+        <li>
+          Dynamic light rotating from the lighthouse shining on the water and
+          the boat (raytracing)
+        </li>
+        <li>Water splashing against the shore/boat (Water simulation)</li>
+        <li>Water moving the boat (boat simulation)</li>
+      </ol>
 
-		<h2>Part 3: Handling collisions with other objects</h2>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <h3>Hope to deliver</h3>
+      <ol>
+        <li>Moonlight shining (raytracing)</li>
+        <li>Subsurface scattering of illuminated water</li>
+        <li>Ripples behind the boat (water simulation)</li>
+        <li>Buoyancy based simulation of boat physics</li>
+        <li>Interactive demo where you can control the boat</li>
+      </ol>
+      We plan to deliver a video of the coastal scene, but hope to deliver an
+      interactive demo. We plan to compare other simulations/games with water
+      scenes to see how our quality compares.
 
-		<h2>Part 4: Handling self-collisions</h2>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <h2>Schedule</h2>
+      <ul>
+        <li>
+          Week 1: Project proposal, preliminary plans for division of labor and
+          research on techniques
+        </li>
+        <li>
+          Week 2: Develop water simulation (waves, foam, primitive buoyancy
+          simulation)
+        </li>
+        <li>
+          Week 3: Work on raytracing for the light from the lighthouse shining
+          on the boat and the water
+        </li>
+        <li>Week 4: Bug-fixes or development on hope to deliver goals</li>
+      </ul>
 
-		<h2>Part 5: Shaders</h2>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-		<h2>(Optional) Part 6: Extra Credit - Additional cloth simulation features!</h2>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		
-		<h2>Additional Notes (please remove)</h2>
-		<ul>
-			<li>You can also add code if you'd like as so: <code>code code code</code></li>
-			<li>If you'd like to add math equations, 
-				<ul>
-					<li>You can write inline equations like so: \( a^2 + b^2 = c^2 \)</li>
-					<li>You can write display equations like so: \[ a^2 + b^2 = c^2 \]</li>
-				</ul>
-			</li>
-		</ul>
-		</div>
-	</body>
+      <h2>Resources</h2>
+      <ul>
+        <li>CS 184 Lectures and Homeworks</li>
+        <li>
+          <a
+            href="https://gpuopen.com/gdc-presentations/2019/gdc-2019-agtd6-interactive-water-simulation-in-atlas.pdf"
+            target="_blank"
+          >
+            Interactive Water Simulation in Atlas (GDC 2019 PDF)
+          </a>
+        </li>
+      </ul>
+    </div>
+  </body>
 </html>
