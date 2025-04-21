@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Milestone Checkpoint</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      .container {
+        margin: 0 auto;
+        padding: 60px 20%;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      a {
+        color: #1a0dab;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      p {
+        line-height: 1.6;
+      }
+
+      h2 {
+        color: #1a0dab;
+        margin-top: 2rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Top navigation bar -->
+    <div
+      style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 10%;
+        background-color: #f5f5f5;
+        font-family: 'Inter', sans-serif;
+        border-bottom: 1px solid #ddd;
+      "
+    >
+      <!-- Project name -->
+      <div style="font-size: 20px; font-weight: 600">
+        Dynamic Lighthouse and Coastal Waters
+      </div>
+
+      <!-- Navigation buttons -->
+      <div>
+        <button
+          onclick="location.href='index.html'"
+          style="
+            padding: 8px 16px;
+            font-size: 14px;
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+          "
+        >
+          Proposal
+        </button>
+
+        <button
+          onclick="location.href='checkpoint.html'"
+          style="
+            padding: 8px 16px;
+            font-size: 14px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          "
+        >
+          Milestone
+        </button>
+      </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container">
+      <h1>Milestone Checkpoint</h1>
+
+      <p>
+        <strong>Presentation Link:</strong><br />
+        <a
+          href="https://docs.google.com/presentation/d/1SRNjJz10DWuzWoUDlRPFU4FOyhbpIWv7sGAtH0_BA20/edit?slide=id.g34d9eab0271_0_0#slide=id.g34d9eab0271_0_0"
+          target="_blank"
+        >
+          https://docs.google.com/presentation/d/1SRNjJz10DWuzWoUDlRPFU4FOyhbpIWv7sGAtH0_BA20/edit?slide=id.g34d9eab0271_0_0#slide=id.g34d9eab0271_0_0
+        </a>
+      </p>
+
+      <p><strong>Video Link:</strong> (Not provided)</p>
+
+      <h2>Summary</h2>
+      <p>
+        We currently build the entire scene on Shadertoy. Overall, we aim to
+        build a sweeping lighthouse beam that lights an animated ocean and a
+        buoyant boat. The scene is built with signed-distance functions and a
+        ray-marcher, avoiding mesh overhead. Five octaves of hash-based value
+        noise drive wave heights; Fresnel shading blends water color with sky
+        reflections. Boat buoyancy samples corner heights, while a cross-product
+        frame tilts the hull to match wave slopes. The beam casts soft shadows
+        via the same distance field.
+      </p>
+
+      <h2>Preliminary Results</h2>
+      <p>
+        We developed initial water simulation, buoyancy and basic boat
+        simulation, and sky and cloud simulation on Shadertoy.
+      </p>
+
+      <h2>Updated Plan</h2>
+      <p>
+        Week 3: Work on raytracing for the light from the lighthouse shining on
+        the boat and the water; combine all parts together.<br />
+        Week 4:
+      </p>
+    </div>
+  </body>
+</html>
