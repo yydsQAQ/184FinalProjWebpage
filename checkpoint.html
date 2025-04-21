@@ -10,6 +10,9 @@
     <style>
       body {
         font-family: "Inter", sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
       }
 
       .container {
@@ -30,65 +33,64 @@
         text-decoration: underline;
       }
 
+      h2 {
+        color: #1a0dab;
+        margin-top: 2rem;
+      }
+
       p {
         line-height: 1.6;
       }
 
-      h2 {
-        color: #1a0dab;
-        margin-top: 2rem;
+      .label {
+        font-weight: 600;
+        margin-top: 1rem;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 10%;
+        background-color: #f5f5f5;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .navbar-title {
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .navbar button {
+        padding: 8px 16px;
+        font-size: 14px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+        margin-right: 10px;
+      }
+
+      .btn-primary {
+        background-color: #007bff;
+        color: white;
       }
     </style>
   </head>
 
   <body>
     <!-- Top navigation bar -->
-    <div
-      style="
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 10%;
-        background-color: #f5f5f5;
-        font-family: 'Inter', sans-serif;
-        border-bottom: 1px solid #ddd;
-      "
-    >
-      <!-- Project name -->
-      <div style="font-size: 20px; font-weight: 600">
-        Dynamic Lighthouse and Coastal Waters
-      </div>
-
-      <!-- Navigation buttons -->
+    <div class="navbar">
+      <div class="navbar-title">Dynamic Lighthouse and Coastal Waters</div>
       <div>
-        <button
-          onclick="location.href='index.html'"
-          style="
-            padding: 8px 16px;
-            font-size: 14px;
-            background-color: #6c757d;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-right: 10px;
-          "
-        >
+        <button onclick="location.href='index.html'" class="btn-primary">
           Proposal
         </button>
-
-        <button
-          onclick="location.href='checkpoint.html'"
-          style="
-            padding: 8px 16px;
-            font-size: 14px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-          "
-        >
+        <button onclick="location.href='checkpoint.html'" class="btn-secondary">
           Milestone
         </button>
       </div>
@@ -96,43 +98,66 @@
 
     <!-- Page content -->
     <div class="container">
-      <h1>Milestone Checkpoint</h1>
+      <h1>Dynamic Lighthouse and Coastal Waters</h1>
+      <div style="text-align: center; font-size: 14px; margin-bottom: 2rem">
+        Name: Albert Xie, Jon Giller, Dhanin Wongpanich, and Soren Ying
+      </div>
 
-      <p>
-        <strong>Presentation Link:</strong><br />
-        <a
-          href="https://docs.google.com/presentation/d/1SRNjJz10DWuzWoUDlRPFU4FOyhbpIWv7sGAtH0_BA20/edit?slide=id.g34d9eab0271_0_0#slide=id.g34d9eab0271_0_0"
-          target="_blank"
-        >
-          https://docs.google.com/presentation/d/1SRNjJz10DWuzWoUDlRPFU4FOyhbpIWv7sGAtH0_BA20/edit?slide=id.g34d9eab0271_0_0#slide=id.g34d9eab0271_0_0
-        </a>
-      </p>
+      <div class="label">Presentation Link:</div>
+      <a
+        href="https://docs.google.com/presentation/d/1SRNjJz10DWuzWoUDlRPFU4FOyhbpIWv7sGAtH0_BA20/edit?slide=id.g34d9eab0271_0_0#slide=id.g34d9eab0271_0_0"
+        target="_blank"
+      >
+        https://docs.google.com/presentation/d/1SRNjJz10DWuzWoUDlRPFU4FOyhbpIWv7sGAtH0_BA20/edit?slide=id.g34d9eab0271_0_0
+      </a>
 
-      <p><strong>Video Link:</strong> (Not provided)</p>
+      <div class="label">Video Link:</div>
+      <a
+        href="https://drive.google.com/file/d/1CYUEUq08m9LKyQVtXBhv3yA0d1m7DUwZ/view?usp=sharing"
+        target="_blank"
+      >
+        https://drive.google.com/file/d/1CYUEUq08m9LKyQVtXBhv3yA0d1m7DUwZ/view?usp=sharing
+      </a>
+
+      <div class="label">Webpage:</div>
+      <a href="https://yydsqaq.github.io/184FinalProj/Webpage/" target="_blank">
+        https://yydsqaq.github.io/184FinalProj/Webpage/
+      </a>
 
       <h2>Summary</h2>
       <p>
-        We currently build the entire scene on Shadertoy. Overall, we aim to
-        build a sweeping lighthouse beam that lights an animated ocean and a
-        buoyant boat. The scene is built with signed-distance functions and a
-        ray-marcher, avoiding mesh overhead. Five octaves of hash-based value
-        noise drive wave heights; Fresnel shading blends water color with sky
-        reflections. Boat buoyancy samples corner heights, while a cross-product
-        frame tilts the hull to match wave slopes. The beam casts soft shadows
-        via the same distance field.
+        Our project combines ray-based rendering with physics simulation to
+        create dynamic visual effects. Using Signed Distance Functions and
+        Raymarching instead of traditional vertex geometry, we aim to develop a
+        realistic water system that interacts with a simulated boat. Our current
+        implementation calculates floating height by sampling water at object
+        corners, creates boat orientation changes through vector-based
+        calculations to simulate tilting on waves, and generates animated water
+        movement using layered noise functions. Eventually, we want to build a
+        scene that features a lighthouse (not yet created) with dynamic rotating
+        light beams illuminating the water surface, atmospheric effects
+        including gradient skies, and drifting cloud layers.
       </p>
 
       <h2>Preliminary Results</h2>
       <p>
         We developed initial water simulation, buoyancy and basic boat
-        simulation, and sky and cloud simulation on Shadertoy.
+        simulation, and sky and cloud simulation on shadertoy. Further details
+        are in the presentation slides.
+      </p>
+
+      <h2>Status of progress compared to overall plan</h2>
+      <p>
+        We are on track with the original plan, except that we built different
+        parts of the scene separately and haven’t been able to combine them
+        together, but we will do so in the next week.
       </p>
 
       <h2>Updated Plan</h2>
       <p>
         Week 3: Work on raytracing for the light from the lighthouse shining on
         the boat and the water; combine all parts together.<br />
-        Week 4:
+        Week 4: Debug and further polish the scene.
       </p>
     </div>
   </body>
