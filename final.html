@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Final Report – Dynamic Lighthouse & Coastal Waters</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --page-max-width: 900px;
+        --brand-blue: #1a0dab;
+        --text-gray: #444;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        color: var(--text-gray);
+      }
+
+      /* ---------- Navigation ---------- */
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 10%;
+        background-color: #fff;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .navbar-title {
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .navbar button {
+        padding: 8px 20px;
+        font-size: 14px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      .btn-secondary {
+        background-color: #6c757d;
+        color: #fff;
+        margin-right: 10px;
+      }
+
+      .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+      }
+
+      .btn-primary:hover,
+      .btn-secondary:hover {
+        opacity: 0.9;
+      }
+
+      /* ---------- Main Layout ---------- */
+      main {
+        max-width: var(--page-max-width);
+        margin: 60px auto;
+        padding: 0 24px 80px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 0;
+        font-size: 32px;
+      }
+
+      h2 {
+        color: var(--brand-blue);
+        margin-top: 2.5rem;
+        font-size: 24px;
+      }
+
+      h3 {
+        margin-top: 1.8rem;
+        font-size: 20px;
+      }
+
+      p,
+      li {
+        line-height: 1.68;
+        font-size: 15px;
+      }
+
+      a {
+        color: var(--brand-blue);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* ---------- Utility ---------- */
+      .label {
+        font-weight: 600;
+        margin-top: 1.2rem;
+      }
+
+      pre {
+        background: #f3f4f6;
+        padding: 14px 18px;
+        border-radius: 6px;
+        overflow-x: auto;
+        font-size: 14px;
+      }
+
+      code {
+        font-family: "Source Code Pro", monospace;
+      }
+
+      figure {
+        margin: 1.2rem 0;
+        text-align: center;
+      }
+
+      figure img {
+        max-width: 100%;
+        border-radius: 4px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
+
+      figcaption {
+        font-size: 14px;
+        color: #666;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-title">Dynamic Lighthouse & Coastal Waters</div>
+      <div>
+        <button onclick="location.href='index.html'" class="btn-secondary">
+          Proposal
+        </button>
+        <button onclick="location.href='checkpoint.html'" class="btn-secondary">
+          Milestone
+        </button>
+        <button class="btn-primary" disabled>Final Report</button>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+      <h1>Final Report</h1>
+      <p style="text-align: center; font-size: 14px; margin-top: -8px">
+        <strong
+          >Team 26 | Albert Xie, Dhanin Wongpanich, Jon Giller, Soren Ying</strong
+        >
+      </p>
+
+      <!-- Links -->
+      <div class="label">Website:</div>
+      <a
+        href="https://yydsqaq.github.io/184FinalProjWebpage/final.html"
+        target="_blank"
+        >https://yydsqaq.github.io/184FinalProjWebpage/final.html</a
+      >
+
+      <div class="label">Slides:</div>
+      <a
+        href="https://docs.google.com/presentation/d/1SRNjJz10DWuzWoUDIRPFU4FOyhbplWv7sGAtH0_BA20/edit?usp=sharing"
+        target="_blank"
+        >https://docs.google.com/presentation/d/1SRNjJz10DWuzWoUDIRPFU4FOyhbplWv7sGAtH0_BA20/edit?usp=sharing</a
+      >
+
+      <div class="label">Video Showcase:</div>
+      <a
+        href="https://drive.google.com/file/d/18mwamp5zHamdZ8BJJdwIYbnFKreC3GvU/view"
+        target="_blank"
+        >https://drive.google.com/file/d/18mwamp5zHamdZ8BJJdwIYbnFKreC3GvU/view</a
+      >
+
+      <!-- ABSTRACT -->
+      <h2>Abstract</h2>
+      <p>
+        This project explored the development of a real-time dynamic ocean scene
+        in Shadertoy, integrating a diverse range of graphics techniques. We
+        implemented raymarching with Signed Distance Functions (SDFs) for
+        complex geometry, investigated different approaches to buoyancy
+        simulation, developed realistic procedural water rendering, implemented
+        a 2.5D heightfield water simulation, and utilized procedural generation
+        for atmospheric effects. Through this process, we gained significant
+        practical understanding of these individual components and valuable
+        experience in their complex integration. A major undertaking involved
+        the challenging task of understanding, adapting, and correctly
+        incorporating pre-existing SDF shaders for a boat and lighthouse into
+        our custom shader. Tackling the water simulation using a heightfield
+        approach proved particularly insightful, enhancing our knowledge of
+        compute shaders and texture-based data management. We built everything
+        ourselves except for the lighthouse and boat sdf. We also used ChatGPT
+        to help debug, process, and understand code. It was a very helpful tool
+        and made tackling this project much more approachable!
+      </p>
+
+      <!-- TECHNICAL APPROACH -->
+      <h2>Technical Approach</h2>
+
+      <h3>Water Rendering</h3>
+      <p>
+        We render an animated ocean by combining procedural noise, ray marching,
+        and view-dependent lighting. We shape the water surface by layering
+        multiple animated wave patterns using cosine functions and directional
+        noise, which gives our waves a natural and dynamic motion. To find where
+        a camera ray intersects the water, we march forward step by step until
+        we hit the ocean surface, then use binary search to refine that point.
+        At the hit point, we estimate the surface normal by sampling nearby
+        positions, which helps us apply lighting and reflections accurately. We
+        blend a base blue-green water color with specular highlights from a
+        directional light source, using a Fresnel-style effect to make
+        reflections stronger at shallow viewing angles.
+      </p>
+
+      <h3>
+        Raymarching & SDFs: Boat, Lighthouse & Other Boat/Lighthouse Effects
+      </h3>
+      <h4>Raymarching</h4>
+      <p>
+        To understand the ideas behind generating the scene in this project, we
+        must discuss Raymarching and Signed Distance Functions (SDFs). The idea
+        behind raymarching is an alternative to BVH trees/polygon meshes with a
+        different implementation, which will be needed to render large and
+        complex objects (that are not easily described using polygon meshes)
+        such as boats and lighthouses. Like with traditional ray tracing, you
+        have a ray with a direction rd and origin ro. The traditional
+        raymarching loop goes as follows:
+      </p>
+      <pre><code>float raymarch(vec3 ro, vec3 rd) {
+    float t = 0.0;
+    for(int i = 0; i < 100; i++) {
+        vec3 p = ro + rd * t;
+        float d = map(p);
+        if (d < 0.001) break;
+        t += d;
+        if (t > 100.0) break;
+     }
+    return t;
+}
+</code></pre>
+      <p>
+        This loop begins at the origin. The map function calculates the minimum
+        distance to any of the objects described with SDFs (which I will explain
+        soon). The ray can safely be progressed that much further. This loop
+        continues until either the distance to the nearest object is minimal
+        (less than 0.001 here), so the ray intersects this object, or the
+        distance from the origin is too far and no more iterations will occur,
+        meaning the ray did not intersect any objects.
+      </p>
+
+      <h4>SDFs</h4>
+      <p>
+        Moving onto SDFs, how does the map function know where the nearest
+        object is? Well, using SDFs, functions that describe shapes using
+        mathematical formulas, this is calculated using the distance from the
+        current point on the raymarching loop to the origin of the shape. For
+        example, the SDF for a simple sphere is as follows:
+      </p>
+
+      <pre><code>float sdSphere(vec3 p, float r) {
+    return length(p) - r;
+}
+</code></pre>
+
+      <p>
+        where p is the vector from the origin of the sphere to the point
+        currently assessed in raymarching. Below are several examples of
+        raymarching being used to render spheres showing a simple sphere, then
+        two spheres, one behind the other (showing how we can render multiple
+        objects and put the closer one over the other since the intersection
+        occurs first), and finally a bunch of spheres using a relatively simple
+        iterative algorithm.
+      </p>
+      <figure>
+        <img src="img/1.png" alt="img/index.png" />
+      </figure>
+
+      <h4>Boat and Lighthouse SDFs</h4>
+      <p>
+        Building the boat and lighthouse from SDFs would be entire projects in
+        themselves, which was not the goal of our project, so we implemented
+        these from other shaders, linked in the references section and seen
+        below.
+      </p>
+      <div style="text-align: center">
+        <img
+          src="img/2.gif"
+          style="display: inline-block; width: 200px"
+          alt="img/index.png"
+        />
+        <img
+          src="img/3.gif"
+          style="display: inline-block; width: 200px"
+          alt="img/index.png"
+        />
+      </div>
+      <p>
+        Implementing these into our shader with the accurate water simulation
+        was quite the challenge due to the convoluted and confusing codebase
+        left by the creators. It took a lot of trial and error to implement
+        these into our shader, but understanding the basics of raymarching and
+        SDFs helped immensely.
+      </p>
+
+      <h4>Boat and Lighthouse Other Effects</h4>
+      <p>
+        In addition to adding the boat, we were able to implement a feature
+        where the sails would look like they were being inflated by the wind,
+        pushing the boat in the direction of travel. This was an improvement to
+        the plain boat SDF with the sails being flat sheets. We implemented this
+        using the boat’s direction of travel and adding a small increment to the
+        sails positions in that direction.
+      </p>
+      <p>
+        Another effect that was quite challenging to add was using the
+        lighthouse’s rendering function to implement lighting from the
+        lighthouse’s light onto the ocean and the water. This allowed the light
+        to shine onto the water’s surface as it rotated, as well as the boat,
+        even shining into the camera as it rotated to capture the accurate
+        rotation of a lighthouse tower light. We made this red to add more of an
+        interesting color scheme since the one above was quite bland.
+      </p>
+
+      <h3>2.5D Water Simulation</h3>
+      <p>
+        We implemented a physically accurate water simulation utilizing a 2.5D
+        height field approach. This method required storing the water height at
+        specific UV coordinates within a compute buffer. Subsequently, in each
+        simulation step, we applied the 2D Shallow Water equations, considering
+        neighboring cells, to determine the water height for the next step.
+        Initially, our implementation only sampled the four cardinal neighbors;
+        however, we later included diagonal neighbors in the sampling process
+        after observing square wave artifacts.
+      </p>
+
+      <figure>
+        <img src="img/4.png" alt="img/index.png" />
+      </figure>
+      <p>
+        Another challenge involved smoothly blending the 2.5D heightfield
+        simulation with a sum-of-sines wave representation. As simulation points
+        approached the boundary edge, we progressively blended in the value
+        derived from the sum of sines. This blending was also applied visually,
+        calculating a weighted average between the physically accurate
+        simulation result and the sum-of-sines output. Furthermore, the
+        initialization process required sampling initial heights from the height
+        field data. We handled the transfer of this data using a method
+        analogous to texture mapping, which necessitated converting between UV
+        coordinates and the corresponding coordinates within the simulation
+        space.
+      </p>
+
+      <h3>Buoyancy Simulation</h3>
+      <p>
+        Initially, we tried a simplified two-way coupling approach based on
+        these physically based equations.
+      </p>
+      <figure>
+        <img src="img/5.png" alt="img/index.png" />
+      </figure>
+      <p>
+        However, state management was difficult, and although we got preliminary
+        results, it was difficult to work with and calculate normals correctly
+        with a moving boat.
+      </p>
+      <p>
+        Instead, we applied a simpler, unique approach. We sample at 4 points:
+        front, back, left, and right. We approximate the boat hull with a
+        rectangle for 1 way coupling, where the water is pushed down by the
+        rectangle sdf.
+      </p>
+
+      <figure>
+        <img src="img/6.png" alt="img/index.png" />
+      </figure>
+      <p>
+        We use an Exponential Moving Average for all 4 points to calculate the
+        position. We store these 4 points in the unused space of a magic pixel
+        in the compute shader. This is used to render the boat and rocking based
+        off of a normal vector calculated from the 4 points.
+      </p>
+      <figure>
+        <img src="img/7.png" alt="img/index.png" />
+      </figure>
+
+      <h3>Circular movement</h3>
+      <p>
+        We define the boat's movement using the parametric equation for a
+        circle. The boat's central XZ position is updated each frame based on
+        this circular path equation. For the simulation, we calculate the
+        'forward' direction as the tangent to the circle at the boat's current
+        position. The sample points ('front', 'back', 'left', 'right') are then
+        found by offsetting the center along this calculated forward direction
+        and its perpendicular 'right' direction, using the boat's defined
+        half-dimensions. The boat's current XZ location is stored between frames
+        in a state pixel. To render the boat, its orientation, including
+        rocking, is determined using an 'up' vector derived from the smoothed
+        heights at these four points (read from state pixels), combined with the
+        path's tangent direction.
+      </p>
+
+      <h3>Sky & Clouds</h3>
+      <p>
+        We implemented clouds and sky gradient using a combination of fractal
+        Brownian motion (FBM), Perlin-style noise, and rotation matrices to add
+        variation. The FBM function combines multiple octaves of smoothed noise
+        to simulate the soft, layered look of real clouds. I blended this with a
+        dynamic sky gradient that transitions from sunset tones near the horizon
+        to darker blue tones at the top, simulating twilight.
+      </p>
+      <p>
+        Initially, the clouds looked flat and artificial — too uniform, too
+        “blobby,” and lacked depth.
+      </p>
+      <figure>
+        <img src="img/8.png" alt="img/index.png" />
+      </figure>
+      <p>
+        To improve realism, I increased the complexity of the FBM by adding more
+        octaves and fine-tuning frequency and decay parameters, which taught me
+        that multi-layered noise is essential for natural-looking clouds. I also
+        applied rotation matrices within the FBM loop to break up axis-aligned
+        patterns, learning that domain warping is key to avoiding repetitive
+        artifacts. Additionally, I used ‘smoothstep’ and exponential falloff to
+        blend the clouds with the sky gradient more naturally, which highlighted
+        how critical smooth transitions and atmospheric light scattering are for
+        realism. This process showed me that lighting, edge softness, and
+        variation together create the illusion of depth and make procedural
+        clouds feel convincing.
+      </p>
+      <figure>
+        <img src="img/9.png" alt="img/index.png" />
+      </figure>
+
+      <!-- RESULTS -->
+      <h2>Results</h2>
+      <figure>
+        <img src="img/9.png" alt="img/index.png" />
+      </figure>
+
+      <p>
+        <strong>Video Showcase:</strong>
+        <a
+          href="https://drive.google.com/file/d/16xHAimWecSSvTrNIvIgi0rtGHOJyuUwp/view?usp=sharing"
+          target="_blank"
+          >https://drive.google.com/file/d/16xHAimWecSSvTrNIvIgi0rtGHOJyuUwp/view?usp=sharing</a
+        >
+      </p>
+      <p>
+        <strong>Shadertoy link:</strong>
+        <a href="https://www.shadertoy.com/view/WXjXzV" target="_blank"
+          >https://www.shadertoy.com/view/WXjXzV</a
+        >
+      </p>
+
+      <!-- REFERENCES -->
+      <h2>References</h2>
+      <ul>
+        <li>
+          <a href="https://www.youtube.com/watch?v=hswBi5wcqAA" target="_blank"
+            >20 - How to write a Height-Field Water Simulator with 100 lines of
+            code.</a
+          >
+        </li>
+        <li>
+          <a href="https://www.shadertoy.com/view/M3lyRf" target="_blank"
+            >lighthouse shader</a
+          >
+        </li>
+        <li>
+          <a href="https://www.shadertoy.com/view/ll2BzR" target="_blank"
+            >boat shader</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://sites.google.com/berkeley.edu/terraingenraymarcher/final-report"
+            target="_blank"
+            >water reflecting</a
+          >
+        </li>
+        <li>
+          <a href="https://paulbourke.net/geometry/reflected/" target="_blank"
+            >water reflecting</a
+          >
+        </li>
+        <li>
+          <a href="https://www.shadertoy.com/view/lldGDr" target="_blank"
+            >input handling</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.sidefx.com/docs/houdini/nodes/sop/convert.html"
+            target="_blank"
+            >Possible conversion to primitives</a
+          >
+        </li>
+        <li>
+          <a href="https://www.shadertoy.com/view/clScRG" target="_blank"
+            >flowing water</a
+          >
+        </li>
+        <li>
+          <a href="https://chatgpt.com/" target="_blank"
+            >learning how to use SDFs and implement them, basic wind simulation
+            of sails</a
+          >
+        </li>
+      </ul>
+
+      <!-- CONTRIBUTIONS -->
+      <h2>Contributions</h2>
+      <ul>
+        <li>
+          <strong>Albert Xie</strong>: Procedural generation of clouds, sky, and
+          sunset
+        </li>
+        <li>
+          <strong>Dhanin Wongpanich</strong>: Water simulation, buoyancy
+          simulation, boat movement
+        </li>
+        <li>
+          <strong>Jon Giller</strong>: Boat, lighthouse, wind in sails,
+          lighthouse tower lighting
+        </li>
+        <li>
+          <strong>Soren Ying</strong>: Water rendering, reflections, sum of
+          sines water simulation
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
